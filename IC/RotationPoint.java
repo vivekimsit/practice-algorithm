@@ -1,4 +1,4 @@
-class Main {
+class RotationPoint {
   static int findRotationIndex(final String[] words) {
     int L = 0;
     int R = words.length - 1;
