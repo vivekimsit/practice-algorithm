@@ -11,7 +11,16 @@ class ParenthesisValidator {
         stack.push(ch);
       }
       else if ("}])".indexOf(ch) > 0) {
-        char top = stack.pop();
+        char top = stack.peek();
+        if (top == '{' && ch == '}') {
+          stack.pop();
+        }
+        else if (top == '[' && ch == ']') {
+          stack.pop();
+        }
+        else if (top == '(' && ch == ')') {
+          stack.pop();
+        }
       }
     }
 
@@ -19,6 +28,10 @@ class ParenthesisValidator {
   }
 
   public static void main(String[] args) {
-  
+    solve(null);
+    solve("");
+    solve("[{(");
+    solve("[]");
+    solve("[{()}]");
   }
 }
